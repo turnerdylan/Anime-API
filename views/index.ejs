@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/styles/main.css" />
+</head>
+<body>
+
+    <div class="container">
+        <div class="forms">
+            <h1>Lets check out some anime!</h1>
+
+            <form action="/" id="myForm" class="form" method="post">
+                <label for="">Rating (0-100)</label>
+                <input type="number" name="rating">
+        
+                <label for="">Popularity</label>
+                <input type="number" name="popularity">
+        
+                <label for="">Episodes</label>
+                <input type="number" name="episodes">
+        
+                <label for="">Category</label> <br/>
+                <select name="category" id="category" multiple>
+                    <option value="adventure">Adventure</option>
+                    <option value="charity">Charity</option>
+                    <option value="recreational">Recreational</option>
+                    <option value="relaxation">Relaxation</option>
+                    <option value="busywork">Busywork</option>
+                    <!-- put for loop of all categories here -->
+                </select>
+                <input type="submit" value="Submit">
+            </form>
+    
+            <form action="/random" id="myForm2" class="form" method="post">
+                <input type="submit" value="Random!">
+            </form>
+        </div>
+
+        <div class="results">
+
+            <% if(locals.content) { %>
+    
+                
+            
+                <% } %>
+            
+                <% if(locals.anime) { %>
+            
+                    <% var randomIndex = Math.floor(Math.random() * anime.data.length) %>
+                    <h1>Title</h1>
+                    <%= anime.data[randomIndex].attributes.canonicalTitle %>
+                    <h2>Alt</h2>
+                    <%= anime.data[randomIndex].attributes.titles.ja_jp %>
+                    <h2>Description</h2>
+                    <%= anime.data[randomIndex].attributes.description %>
+                    <h2>Img</h2>
+                    <img src="<%= anime.data[randomIndex].attributes.posterImage.medium %>" alt=""> 
+                
+                    <% } %>
+            
+                    <% //anime.data.forEach(element => {   %>
+    
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>
